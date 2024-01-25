@@ -38,7 +38,7 @@ function App() {
             alignItems: "center",
           }}
         >
-          <h4>Number of Characters :</h4>
+          <h4>Number of Characters</h4>
           <input
             type="number"
             value={value}
