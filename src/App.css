@@ -10,3 +10,4 @@ button{background-color: turquoise !important;color: black;padding-left: 10px !i
 button:focus{border: 0px !important;outline: 0px !important;}
 button:active{border: 0px !important;outline: 0px !important;}
 i{cursor: pointer;margin-left: 10px;}
+div[data-pc-name="messages"]{position: absolute;right: 2rem;top: 0;width: 50%;}

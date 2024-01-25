@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Messages } from "primereact/messages";
 import axios from "axios";
 import { Button } from "primereact/button";
 import { Fieldset } from "primereact/fieldset";
@@ -26,11 +27,23 @@ function App() {
       setLoading(false);
     });
   };
+  const msgs = useRef(null);
 
-  const handleCopyToClipboard = () => {
+  const addMessages = () => {
+    msgs.current.show([
+      {
+        severity: "success",
+        summary: "Kopyalama Başarılı",
+        detail: `${password}`,
+        sticky: true,
+        closable: false,
+      },
+    ]);
     copy(password);
+    setTimeout(() => {
+      msgs.current.clear();
+    }, 2000);
   };
-
   return (
     <div className="veri-alan">
       <Fieldset>
@@ -68,7 +81,7 @@ function App() {
               password
             )}
           </div>
-          <i className="bi bi-copy" onClick={handleCopyToClipboard} />
+          <i className="bi bi-copy" onClick={addMessages} />
         </div>
       </Fieldset>
 
@@ -76,6 +89,7 @@ function App() {
         src="https://images.wondershare.com/recoverit/article/all-you-need-to-know-about-ai-hacking-1.jpg"
         alt=""
       />
+      <Messages ref={msgs} />
     </div>
   );
 }
