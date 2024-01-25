@@ -1,35 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import axios from "axios";
+import { Button } from "primereact/button";
+import { Fieldset } from "primereact/fieldset";
+import { ProgressSpinner } from "primereact/progressspinner";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [password, setPassword] = useState("");
+  const [value, setValue] = useState(16);
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = () => {
+    setLoading(true);
+
+    axios({
+      method: "GET",
+      url: `https://api.api-ninjas.com/v1/passwordgenerator?length=${value}`,
+      headers: {
+        "X-Api-Key": "TyvX7NrvmCbJ9xsiNW6f4A==ioWR7qO7m2TsUYMx",
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      setPassword(response.data.random_password);
+      setLoading(false);
+    });
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="veri-alan">
+      <Fieldset>
+        <h2>Random Password Generator</h2>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            gap: "40px",
+            alignItems: "center",
+          }}
+        >
+          <h4>Number of Characters :</h4>
+          <input
+            type="number"
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+          />
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            height: "50px",
+          }}
+        >
+          <Button label="Generate" onClick={handleClick} />
+          <div className="center-right">
+            {loading ? (
+              <ProgressSpinner style={{ height: "50px" }} />
+            ) : (
+              password
+            )}
+          </div>
+        </div>
+      </Fieldset>
+
+      <img
+        src="https://images.wondershare.com/recoverit/article/all-you-need-to-know-about-ai-hacking-1.jpg"
+        alt=""
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;

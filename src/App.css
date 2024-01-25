@@ -1,42 +1,12 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+body{max-width: 100vw;overflow: hidden !important;}
+#root{display: flex;justify-content: center;align-items: center;width: 100%;flex-direction: column;}
+img{position: fixed;top: 0;left: 0;z-index: -99;width: 100%;height: 100%;filter: brightness(.5);object-fit: cover;}
+.veri-alan{max-width: 1000px;padding: 60px;max-height: 300px;}
+fieldset{display: flex;justify-content: center;align-items: center;flex-direction: column;}
+input{background-color: transparent;color: black;height: 30px;border: 0px;outline: 1px solid rgb(0,0,0,.5);padding-left: 10px;}
+.center{display: flex;width: 100%;align-items: center;justify-content: center;}
+.center-right{display: flex;width: 100%;align-items: center;justify-content: right;}
+button{background-color: turquoise !important;color: black;padding-left: 10px !important;padding-right: 25px !important;}
+button:focus{border: 0px !important;outline: 0px !important;}
+button:active{border: 0px !important;outline: 0px !important;}
+.d-none{display: none;}
