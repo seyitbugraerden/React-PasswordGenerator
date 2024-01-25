@@ -2,11 +2,10 @@ body{max-width: 100vw;overflow: hidden !important;}
 #root{display: flex;justify-content: center;align-items: center;width: 100%;flex-direction: column;}
 img{position: fixed;top: 0;left: 0;z-index: -99;width: 100%;height: 100%;filter: brightness(.5);object-fit: cover;}
 .veri-alan{max-width: 1000px;padding: 60px;max-height: 300px;}
-fieldset{display: flex;justify-content: center;align-items: center;flex-direction: column;}
+fieldset{display: flex;justify-content: center;align-items: center;flex-direction: column;transform: translateY(-100px);}
 input{background-color: transparent;color: black;height: 30px;border: 0px;outline: 1px solid rgb(0,0,0,.5);padding-left: 10px;}
 .center{display: flex;width: 100%;align-items: center;justify-content: center;}
 .center-right{display: flex;width: 100%;align-items: center;justify-content: right;}
-button{background-color: turquoise !important;color: black;padding-left: 10px !important;padding-right: 25px !important;}
+button{background-color: turquoise !important;color: black;padding-left: 10px !important;padding-right: 35px !important;}
 button:focus{border: 0px !important;outline: 0px !important;}
 button:active{border: 0px !important;outline: 0px !important;}
-.d-none{display: none;}
