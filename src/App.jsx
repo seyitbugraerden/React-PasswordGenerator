@@ -30,19 +30,21 @@ function App() {
   const msgs = useRef(null);
 
   const addMessages = () => {
-    msgs.current.show([
-      {
-        severity: "success",
-        summary: "Kopyalama Başarılı",
-        detail: `${password}`,
-        sticky: true,
-        closable: false,
-      },
-    ]);
-    copy(password);
-    setTimeout(() => {
-      msgs.current.clear();
-    }, 2000);
+    if (password !== "") {
+      msgs.current.show([
+        {
+          severity: "success",
+          summary: "Kopyalama Başarılı",
+          detail: `${password}`,
+          sticky: true,
+          closable: false,
+        },
+      ]);
+      copy(password);
+      setTimeout(() => {
+        msgs.current.clear();
+      }, 2000);
+    }
   };
   return (
     <div className="veri-alan">
