@@ -3,6 +3,7 @@ import axios from "axios";
 import { Button } from "primereact/button";
 import { Fieldset } from "primereact/fieldset";
 import { ProgressSpinner } from "primereact/progressspinner";
+import copy from "clipboard-copy";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
       setPassword(response.data.random_password);
       setLoading(false);
     });
+  };
+
+  const handleCopyToClipboard = () => {
+    copy(password);
   };
 
   return (
@@ -63,6 +68,7 @@ function App() {
               password
             )}
           </div>
+          <i className="bi bi-copy" onClick={handleCopyToClipboard} />
         </div>
       </Fieldset>
 

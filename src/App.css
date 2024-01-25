@@ -9,3 +9,4 @@ input{background-color: transparent;color: black;height: 30px;border: 0px;outlin
 button{background-color: turquoise !important;color: black;padding-left: 10px !important;padding-right: 35px !important;}
 button:focus{border: 0px !important;outline: 0px !important;}
 button:active{border: 0px !important;outline: 0px !important;}
+i{cursor: pointer;margin-left: 10px;}
